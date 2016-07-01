@@ -16,21 +16,44 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome To GAMEStat where you can look up any game!"
+        android:text="Welcome To GAMEStat"
         android:layout_marginTop="25dp"
         android:textColor="@color/colorTextIcons"
-        android:textSize="40sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:id="@+id/appNameTextView" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SEARCH"
-        android:id="@+id/button"
+        android:text="Look At Game List"
+        android:id="@+id/findAllGamesButton"
+        android:layout_above="@+id/findOneGameButton"
+        android:layout_marginBottom="55dp"
         android:background="@color/colorAccent"
-        android:textColor="@color/colorPrimary_text"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameTitleEditText"
+        android:background="@color/colorTextIcons"
+        android:layout_above="@+id/findOneGameButton"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:hint="Enter Game Here"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Game Title"
+        android:id="@+id/findOneGameButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimaryText"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>
