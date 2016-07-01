@@ -38,10 +38,11 @@ public class AllSearchActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String gameList = ((TextView)view).getText().toString();
                 Toast.makeText(AllSearchActivity.this, gameList, Toast.LENGTH_SHORT).show();
+
             }
         });
 
-        Intent intent = getIntent();
+
 
     }
 }
