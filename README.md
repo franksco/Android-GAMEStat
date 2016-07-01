@@ -1,29 +1,37 @@
 # GameStat
 
-A place where you can ask questions a get answers. You can add/delete both questions and answers, you can also update answers as well.
+## Description
+A Place wher you can go and Look up games either through a game specific search or just looking at a list of games, also when you look at a game you can also click on a link and look at the developer and see information about them.
 
-## Prerequisites
+03/14/2016
+By Cory Franks
 
-You will need the following things properly installed on your computer.
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+## Setup/Installation Requirements
 
-## Installation
+* Create a directory
+* Clone Repository
+* Extract files to new Directory
+* Open in a HTTP server
+* Open in a browser of your choice.
 
-* open in android studio
-* click the run button
-* choose nexus 6 api 23 as the emulator
 
-Specify what it takes to deploy your app.
+## Known Bugs
 
-## Further Reading / Useful Links
+No known bugs.
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+## Support and contact details
+
+If user encounters issues or problems please contact Cory Franks at: franksco39@gmail.com
+
+## Technologies Used
+
+* Java
+* XML
+* Android Studio
+
+
+### License
+
+Copyright (c) 2015 **Cory Franks**
+This software is licensed under the MIT License
