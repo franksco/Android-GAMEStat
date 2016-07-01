@@ -3,7 +3,7 @@
 ## Description
 A Place wher you can go and Look up games either through a game specific search or just looking at a list of games, also when you look at a game you can also click on a link and look at the developer and see information about them.
 
-03/14/2016
+07/01/2016
 By Cory Franks
 
 
@@ -33,5 +33,5 @@ If user encounters issues or problems please contact Cory Franks at: franksco39@
 
 ### License
 
-Copyright (c) 2015 **Cory Franks**
+Copyright (c) 2016 **Cory Franks**
 This software is licensed under the MIT License
