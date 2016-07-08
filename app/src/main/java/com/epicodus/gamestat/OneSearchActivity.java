@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 public class OneSearchActivity extends AppCompatActivity {
     @Bind(R.id.gameTextView) TextView mGameTextView;
     @Bind(R.id.listView) ListView mListView;
+    private String mGameTitle;
     
     private String[] gameInfo = new String[] {"Name: The path", "Release date: of the", "developer: righteous man",
             "publisher: is beset", "Genre: on all sides"};
@@ -38,6 +39,7 @@ public class OneSearchActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
+        mGameTitle = intent.getStringExtra("gameTitle");
 
     }
 }
