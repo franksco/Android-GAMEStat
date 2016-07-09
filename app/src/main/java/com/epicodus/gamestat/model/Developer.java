@@ -1,4 +1,4 @@
-package com.epicodus.gamestat;
+package com.epicodus.gamestat.model;
 
 
 import java.util.ArrayList;

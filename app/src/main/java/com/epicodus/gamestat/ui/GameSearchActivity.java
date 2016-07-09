@@ -1,7 +1,9 @@
-package com.epicodus.gamestat;
+package com.epicodus.gamestat.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.epicodus.gamestat.R;
 
 public class GameSearchActivity extends AppCompatActivity {
 

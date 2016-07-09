@@ -1,4 +1,4 @@
-package com.epicodus.gamestat;
+package com.epicodus.gamestat.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.epicodus.gamestat.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

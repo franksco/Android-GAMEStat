@@ -1,5 +1,7 @@
-package com.epicodus.gamestat;
+package com.epicodus.gamestat.model;
 
+
+import com.epicodus.gamestat.model.Developer;
 
 import java.util.ArrayList;
 

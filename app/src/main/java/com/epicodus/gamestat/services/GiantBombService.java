@@ -1,5 +1,9 @@
-package com.epicodus.gamestat;
+package com.epicodus.gamestat.services;
 
+
+import com.epicodus.gamestat.Constants;
+import com.epicodus.gamestat.model.Developer;
+import com.epicodus.gamestat.model.Game;
 
 import org.json.JSONArray;
 import org.json.JSONException;
