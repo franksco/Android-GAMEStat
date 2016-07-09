@@ -13,7 +13,7 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class OneSearchActivity extends AppCompatActivity {
+public class TitleSpecificActivity extends AppCompatActivity {
     @Bind(R.id.gameTextView) TextView mGameTextView;
     @Bind(R.id.listView) ListView mListView;
     private String mGameTitle;
@@ -24,7 +24,7 @@ public class OneSearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one_search);
+        setContentView(R.layout.activity_title_specific);
         ButterKnife.bind(this);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, gameInfo);
@@ -34,7 +34,7 @@ public class OneSearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String gameInfo = ((TextView)view).getText().toString();
-                Toast.makeText(OneSearchActivity.this, gameInfo, Toast.LENGTH_SHORT).show();
+                Toast.makeText(TitleSpecificActivity.this, gameInfo, Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.gamestat" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,26 +11,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity" 
-            android:theme="@style/NoActionBarTheme">
+            android:name=".MainActivity"
+            android:theme="@style/NoActionBarTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".AllSearchActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.gamestat.MainActivity">
+                android:value="com.epicodus.gamestat.MainActivity" >
             </meta-data>
         </activity>
-        <activity android:name=".OneSearchActivity" >
+
+        <activity android:name=".GameSearchActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.gamestat.MainActivity">
+                android:value="com.epicodus.gamestat.MainActivity" >
             </meta-data>
         </activity>
+
+        <activity android:name=".TitleSpecificActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.gamestat.GameSearchActivity" >
+            </meta-data>
+        </activity>
+
     </application>
 
 </manifest>

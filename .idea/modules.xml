@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/GAMEStat.iml" filepath="$PROJECT_DIR$/GAMEStat.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gamestat.iml" filepath="$PROJECT_DIR$/gamestat.iml" />
       <module fileurl="file://$PROJECT_DIR$/gamestat.iml" filepath="$PROJECT_DIR$/gamestat.iml" />
     </modules>
   </component>
