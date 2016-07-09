@@ -77,7 +77,7 @@ public class GiantBombService {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
                 JSONObject giantBombJSON = new JSONObject(jsonData);
-                JSONArray gamesJSON = giantBombJSON.getJSONArray("businesses");
+                JSONArray gamesJSON = giantBombJSON.getJSONArray("games");
                 for (int i = 0; i < gamesJSON.length(); i++) {
                     JSONObject gameJSON = gamesJSON.getJSONObject(i);
                     String name = gameJSON.getString("name");
@@ -104,7 +104,7 @@ public class GiantBombService {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
                 JSONObject giantBombJSON = new JSONObject(jsonData);
-                JSONArray gamesJSON = giantBombJSON.getJSONArray("businesses");
+                JSONArray gamesJSON = giantBombJSON.getJSONArray("games");
                 for (int i = 0; i < gamesJSON.length(); i++) {
                     JSONObject gameJSON = gamesJSON.getJSONObject(i);
                     String name = gameJSON.getString("name");
@@ -151,7 +151,7 @@ public class GiantBombService {
                     Developers.add(new Developer(devName, developerId, developerSiteDetail));
                 }
 
-                game = new Game(name, deck, id, genre, imageUrl,  ReleaseDate, Developers);
+                 game = new Game(name, deck, id, genre, imageUrl,  ReleaseDate, Developers);
             }
 
         } catch (JSONException e) {

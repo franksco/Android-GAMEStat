@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class TitleSpecificActivity extends AppCompatActivity {
-    @Bind(R.id.gameTextView) TextView mGameTextView;
+    @Bind(R.id.gameTitleTextView) TextView mGameTitleTextView;
     @Bind(R.id.listView) ListView mListView;
     private String mGameTitle;
     
