@@ -7,9 +7,10 @@ public class Game {
     private String mName;
     private String mDeck;
     private String mId;
-    private String mGenres;
+    private String mGenre;
     private String mImageUrl;
-    private ArrayList<String> mDevelopers = new ArrayList<>();
+    private String mReleaseDate;
+    private ArrayList<Developer> mDevelopers = new ArrayList<>();
 
     public Game(String name, String deck, String id, String imageUrl) {
         this.mName = name;
@@ -18,22 +19,21 @@ public class Game {
         this.mImageUrl = imageUrl;
     }
 
-    public Game(String name, String deck, String id, String genres,
-                String imageUrl) {
+    public Game(String name, String deck, String id, String genre, String imageUrl) {
         this.mName = name;
         this.mDeck = deck;
         this.mId = id;
-        this.mGenres = genres;
+        this.mGenre = genre;
         this.mImageUrl = imageUrl;
     }
 
-    public Game(String name, String deck, String id, String genres,
-                String imageUrl, ArrayList<String> developers) {
+    public Game(String name, String deck, String id, String genre, String imageUrl, String releaseDate, ArrayList<Developer> developers) {
            this.mName = name;
            this.mDeck = deck;
            this.mId = id;
-           this.mGenres = genres;
+           this.mGenre = genre;
            this.mImageUrl = imageUrl;
+           this.mReleaseDate = releaseDate;
            this.mDevelopers = developers;
         }
 
@@ -49,15 +49,19 @@ public class Game {
             return mId;
         }
 
-        public String getGenres() {
-            return mGenres;
+        public String getGenre() {
+            return mGenre;
         }
 
         public String getImageUrl() {
             return mImageUrl;
         }
 
-        public ArrayList<String> getDevelopers() {
+        public String getReleaseDate() {
+            return mReleaseDate;
+        }
+
+        public ArrayList<Developer> getDevelopers() {
             return mDevelopers;
         }
 
