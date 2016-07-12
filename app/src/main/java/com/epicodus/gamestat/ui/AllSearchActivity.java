@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.gamestat.R;
+import com.epicodus.gamestat.adapters.GameListAdapter;
 import com.epicodus.gamestat.model.Game;
 import com.epicodus.gamestat.services.GiantBombService;
 
@@ -26,10 +29,8 @@ import okhttp3.Response;
 public class AllSearchActivity extends AppCompatActivity {
     public static final String TAG = AllSearchActivity.class.getSimpleName();
 
-    @Bind(R.id.allGameTextView)
-    TextView mAllGameTextView;
-    @Bind(R.id.listView)
-    ListView mListView;
+    @Bind(R.id.allGamelistView) RecyclerView mRecyclerView;
+    private GameListAdapter mAdapter;
 
     public ArrayList<Game> mGames = new ArrayList<>();
 
@@ -39,13 +40,6 @@ public class AllSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_search);
         ButterKnife.bind(this);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String allGames = ((TextView) view).getText().toString();
-                Toast.makeText(AllSearchActivity.this, allGames, Toast.LENGTH_SHORT).show();
-            }
-        });
         getAllGames();
     }
 
@@ -66,21 +60,13 @@ public class AllSearchActivity extends AppCompatActivity {
                 AllSearchActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        mAdapter = new GameListAdapter(getApplicationContext(), mGames);
 
-                        String[] gameNames = new String[mGames.size()];
-                        for (int i = 0; i < gameNames.length; i++) {
-                            gameNames[i] = mGames.get(i).getName();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(AllSearchActivity.this,
-                                android.R.layout.simple_list_item_1, gameNames);
-                        mListView.setAdapter(adapter);
-
-                        for (Game game : mGames) {
-                            Log.d(TAG, "Name: " + game.getName());
-                            Log.d(TAG, "Deck: " + game.getDeck());
-                            Log.d(TAG, "Id: " + game.getId());
-                            Log.d(TAG, "Image url: " + game.getImageUrl());
-                        }
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(AllSearchActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
+                    
                     }
                 });
             }
