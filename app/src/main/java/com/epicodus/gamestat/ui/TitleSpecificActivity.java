@@ -1,6 +1,7 @@
 package com.epicodus.gamestat.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.epicodus.gamestat.R;
 import com.epicodus.gamestat.adapters.GameListAdapter;
+import com.epicodus.gamestat.model.Developer;
 import com.epicodus.gamestat.model.Game;
 import com.epicodus.gamestat.services.GiantBombService;
 import com.squareup.picasso.Picasso;
@@ -27,7 +29,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class TitleSpecificActivity extends AppCompatActivity {
+public class TitleSpecificActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Bind(R.id.imageView) ImageView mImageView;
     @Bind(R.id.gameTextView) TextView mGameTextView;
@@ -45,6 +47,7 @@ public class TitleSpecificActivity extends AppCompatActivity {
         String id = intent.getStringExtra("id");
         ButterKnife.bind(this);
         getGame(id);
+        mDevelopersTextView.setOnClickListener(this);
     }
 
     private void getGame(String id) {
@@ -74,5 +77,14 @@ public class TitleSpecificActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mDevelopersTextView) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mGame.getDevelopers().get(0).getWebsite()));
+            startActivity(webIntent);
+        }
     }
 }
