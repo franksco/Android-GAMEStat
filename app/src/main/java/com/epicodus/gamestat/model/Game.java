@@ -1,8 +1,6 @@
 package com.epicodus.gamestat.model;
 
 
-import com.epicodus.gamestat.model.Developer;
-
 import java.util.ArrayList;
 
 public class Game {

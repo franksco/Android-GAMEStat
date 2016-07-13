@@ -2,6 +2,7 @@ package com.epicodus.gamestat.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.epicodus.gamestat.R;
 import com.epicodus.gamestat.model.Game;
+import com.epicodus.gamestat.ui.TitleSpecificActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,7 +46,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
         return mGames.size();
     }
 
-    public class GameViewHolder extends RecyclerView.ViewHolder {
+    public class GameViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.gameImageView) ImageView mGameImageView;
         @Bind(R.id.gameNameTextView) TextView mGameNameTextView;
         @Bind(R.id.descriptionTextView) TextView mDescriptionTextView;
@@ -55,12 +57,21 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindGame(Game game) {
             mGameNameTextView.setText(game.getName());
             mDescriptionTextView.setText(game.getDeck());
             Picasso.with(mContext).load(game.getImageUrl()).into(mGameImageView);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, TitleSpecificActivity.class);
+            intent.putExtra("id", mGames.get(itemPosition).getId());
+            mContext.startActivity(intent);
         }
     }
 }

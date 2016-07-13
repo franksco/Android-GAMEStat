@@ -1,6 +1,8 @@
 package com.epicodus.gamestat.services;
 
 
+import android.util.Log;
+
 import com.epicodus.gamestat.Constants;
 import com.epicodus.gamestat.model.Developer;
 import com.epicodus.gamestat.model.Game;
@@ -46,6 +48,7 @@ public class GiantBombService {
         urlBuilder.addQueryParameter(Constants.FORMAT_PARAMETER, Constants.FORMAT_PARAMETER_ANSWER)
                 .addQueryParameter(Constants.API_KEY_QUERY_PARAMETER, Constants.API_KEY)
                 .addQueryParameter(Constants.FIELD_LIST_PARAMETER, Constants.SEARCH_GAME_FIELD_LIST)
+                .addQueryParameter(Constants.LIMIT_PARAMETER, "20")
                 .addQueryParameter(Constants.YOUR_QUERY_PARAMETER, query);
         String url = urlBuilder.build().toString();
 
@@ -118,8 +121,17 @@ public class GiantBombService {
                     String name = gameJSON.getString("name");
                     String deck = gameJSON.getString("deck");
                     String id = Integer.toString(gameJSON.getInt("id"));
-                    String genre = gameJSON.getJSONArray("genres").getJSONObject(0).getString("name");
-                    String imageUrl = gameJSON.getString("image_url");
+                    JSONArray genreArray = gameJSON.optJSONArray("genres");
+                    String genre = "N/A";
+                    if(genreArray != null){
+                        genre = genreArray.getJSONObject(0).getString("name");
+                    }
+                    JSONObject image = gameJSON.optJSONObject("image");
+                    String imageUrl = "www.notanimage.com";
+                    if(image != null){
+                        imageUrl = image.optString("super_url");
+                    }
+
 
                     Game game = new Game(name, deck, id, genre, imageUrl);
 
@@ -143,10 +155,14 @@ public class GiantBombService {
                 JSONObject gameJSON = giantBombJSON.getJSONObject("results");
                 String name = gameJSON.getString("name");
                 String deck = gameJSON.getString("deck");
-                String imageUrl = gameJSON.getString("image_url");
+                JSONObject image = gameJSON.optJSONObject("image");
+                String imageUrl = "www.notanimage.com";
+                if(image != null){
+                    imageUrl = image.optString("super_url");
+                }
                 String id = Integer.toString(gameJSON.getInt("id"));
-                String genre = gameJSON.getJSONArray("genres").getJSONObject(0).getString("name");
-                String ReleaseDate = gameJSON.getString("original_release_rate");
+                String genre = gameJSON.optJSONArray("genres").getJSONObject(0).getString("name");
+                String ReleaseDate = gameJSON.optString("original_release_rate", "N/A");
 
                 ArrayList<Developer> Developers = new ArrayList<>();
                 JSONArray developersJSON = gameJSON.getJSONArray("developers");
@@ -160,6 +176,7 @@ public class GiantBombService {
                 }
 
                  game = new Game(name, deck, id, genre, imageUrl,  ReleaseDate, Developers);
+                Log.v("game",game.toString());
             }
 
         } catch (JSONException e) {

@@ -1,29 +1,22 @@
 package com.epicodus.gamestat.ui;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import java.io.IOException;
-import java.util.ArrayList;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.epicodus.gamestat.R;
 import com.epicodus.gamestat.adapters.GameListAdapter;
 import com.epicodus.gamestat.model.Game;
 import com.epicodus.gamestat.services.GiantBombService;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.Response;
 
 public class AllSearchActivity extends AppCompatActivity {

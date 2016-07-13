@@ -7,28 +7,45 @@
     tools:context=".ui.TitleSpecificActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:id="@+id/imageView"
-        android:src="@drawable/gamebackground2"
-        android:layout_above="@+id/listView"
         android:scaleType="centerCrop" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Game Name"
-        android:id="@+id/gameTextView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <ListView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/gameTitleTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/wrapper"
+        android:layout_below="@id/imageView">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gameTextView"
+            android:paddingTop="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deckTextView"
+            android:layout_below="@id/gameTextView"
+            android:paddingTop="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/genreTextView"
+            android:layout_below="@id/deckTextView"
+            android:paddingTop="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/releaseDateTextView"
+            android:layout_below="@id/genreTextView"
+            android:paddingTop="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/developersTextView"
+            android:layout_below="@id/releaseDateTextView"
+            android:paddingTop="30dp" />
+    </RelativeLayout>
 
 </RelativeLayout>
 

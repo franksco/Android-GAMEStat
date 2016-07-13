@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(v == mfindOneGameButton) {
             String gameTitle = mGameTitleEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, TitleSpecificActivity.class);
+            Intent intent = new Intent(MainActivity.this, GameSearchActivity.class);
             intent.putExtra("gameTitle", gameTitle);
             startActivity(intent);
         }
