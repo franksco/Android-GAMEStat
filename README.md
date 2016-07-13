@@ -11,9 +11,9 @@ By Cory Franks
 
 * Create a directory
 * Clone Repository
-* Extract files to new Directory
-* Open in a HTTP server
-* Open in a browser of your choice.
+* Open android studio
+* Create emulater with marshmellow x86_64
+* Run app.
 
 
 ## Known Bugs
