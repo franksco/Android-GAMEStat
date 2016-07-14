@@ -29,6 +29,7 @@ If user encounters issues or problems please contact Cory Franks at: franksco39@
 * Java
 * XML
 * Android Studio
+* FireBase
 * GiantBombs Api http://www.giantbomb.com/
 
 
