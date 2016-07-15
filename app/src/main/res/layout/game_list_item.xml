@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="One Cuisine Type"
+            android:text="game description"
             android:id="@+id/descriptionTextView"
             android:layout_below="@+id/gameNameTextView"
             android:layout_alignParentLeft="true"

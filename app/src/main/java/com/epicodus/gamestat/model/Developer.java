@@ -19,6 +19,8 @@ public class Developer {
         this.mWebsite = website;
     }
 
+    public Developer() {
+    }
 
     public String getName() {
         return mName;

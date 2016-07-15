@@ -2,67 +2,71 @@ package com.epicodus.gamestat.model;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
-    private String mName;
-    private String mDeck;
-    private String mId;
-    private String mGenre;
-    private String mImageUrl;
-    private String mReleaseDate;
-    private ArrayList<Developer> mDevelopers = new ArrayList<>();
+    String name;
+    String deck;
+    String id;
+    String genre;
+    String imageUrl;
+    String releaseDate;
+    List<Developer> developers = new ArrayList<>();
 
     public Game(String name, String deck, String id, String imageUrl) {
-        this.mName = name;
-        this.mDeck = deck;
-        this.mId = id;
-        this.mImageUrl = imageUrl;
+        this.name = name;
+        this.deck = deck;
+        this.id = id;
+        this.imageUrl = imageUrl;
     }
 
     public Game(String name, String deck, String id, String genre, String imageUrl) {
-        this.mName = name;
-        this.mDeck = deck;
-        this.mId = id;
-        this.mGenre = genre;
-        this.mImageUrl = imageUrl;
+        this.name = name;
+        this.deck = deck;
+        this.id = id;
+        this.genre = genre;
+        this.imageUrl = imageUrl;
     }
 
     public Game(String name, String deck, String id, String genre, String imageUrl, String releaseDate, ArrayList<Developer> developers) {
-           this.mName = name;
-           this.mDeck = deck;
-           this.mId = id;
-           this.mGenre = genre;
-           this.mImageUrl = imageUrl;
-           this.mReleaseDate = releaseDate;
-           this.mDevelopers = developers;
+           this.name = name;
+           this.deck = deck;
+           this.id = id;
+           this.genre = genre;
+           this.imageUrl = imageUrl;
+           this.releaseDate = releaseDate;
+           this.developers = developers;
         }
 
-        public String getName() {
-            return mName;
+    public Game() {
+    }
+
+    public String getName() {
+            return name;
         }
 
         public String getDeck() {
-            return mDeck;
+            return deck;
         }
 
         public String getId() {
-            return mId;
+            return id;
         }
 
         public String getGenre() {
-            return mGenre;
+            return genre;
         }
 
         public String getImageUrl() {
-            return mImageUrl;
+            return imageUrl;
         }
 
         public String getReleaseDate() {
-            return mReleaseDate;
+            return releaseDate;
         }
 
-        public ArrayList<Developer> getDevelopers() {
-            return mDevelopers;
+        public List<Developer> getDevelopers() {
+            return developers;
         }
 
 }

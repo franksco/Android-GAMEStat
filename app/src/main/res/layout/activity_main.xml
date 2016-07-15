@@ -25,16 +25,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/appNameTextView" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Look At Game List"
-        android:id="@+id/findAllGamesButton"
-        android:layout_above="@+id/findOneGameButton"
-        android:layout_marginBottom="55dp"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorPrimaryText"
-        android:layout_centerHorizontal="true"/>
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -52,8 +43,32 @@
         android:layout_height="wrap_content"
         android:text="Search Game Title"
         android:id="@+id/findOneGameButton"
+        android:layout_marginBottom="5dp"
         android:background="@color/colorAccent"
         android:textColor="@color/colorPrimaryText"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/findAllGamesButton"
         android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List of Random Games"
+        android:id="@+id/findAllGamesButton"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_above="@+id/savedGamesButton"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Saved Restaurants"
+        android:id="@+id/savedGamesButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimaryText"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 </RelativeLayout>

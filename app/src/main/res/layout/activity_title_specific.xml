@@ -11,41 +11,50 @@
         android:layout_height="300dp"
         android:id="@+id/imageView"
         android:scaleType="centerCrop" />
-    <RelativeLayout
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/wrapper"
+            android:layout_below="@id/imageView">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gameTextView"
+                android:paddingTop="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/deckTextView"
+                android:layout_below="@id/gameTextView"
+                android:paddingTop="30dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genreTextView"
+                android:layout_below="@id/deckTextView"
+                android:paddingTop="30dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/releaseDateTextView"
+                android:layout_below="@id/genreTextView"
+                android:paddingTop="30dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/developersTextView"
+                android:layout_below="@id/releaseDateTextView"
+                android:paddingTop="30dp" />
+        </RelativeLayout>
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/wrapper"
-        android:layout_below="@id/imageView">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/gameTextView"
-            android:paddingTop="30dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/deckTextView"
-            android:layout_below="@id/gameTextView"
-            android:paddingTop="30dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/genreTextView"
-            android:layout_below="@id/deckTextView"
-            android:paddingTop="30dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/releaseDateTextView"
-            android:layout_below="@id/genreTextView"
-            android:paddingTop="30dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/developersTextView"
-            android:layout_below="@id/releaseDateTextView"
-            android:paddingTop="30dp" />
-    </RelativeLayout>
+        android:text="Save Game"
+        android:id="@+id/saveGameButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
 

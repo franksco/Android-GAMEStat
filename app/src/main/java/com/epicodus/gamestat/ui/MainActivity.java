@@ -8,19 +8,32 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.epicodus.gamestat.Constants;
 import com.epicodus.gamestat.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+//    private DatabaseReference mSearchedGameReference;
+
     @Bind(R.id.findAllGamesButton) Button mfindAllGamesButton;
     @Bind(R.id.findOneGameButton) Button mfindOneGameButton;
     @Bind(R.id.gameTitleEditText) EditText mGameTitleEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+    @Bind(R.id.savedGamesButton) Button mSavedGamesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+//        mSearchedGameReference = FirebaseDatabase
+//                .getInstance()
+//                .getReference()
+//                .child(Constants.FIREBASE_CHILD_SEARCHED_GAME);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -28,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mfindAllGamesButton.setOnClickListener(this);
         mfindOneGameButton.setOnClickListener(this);
+        mSavedGamesButton.setOnClickListener(this);
     }
 
     @Override
@@ -43,5 +57,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("gameTitle", gameTitle);
             startActivity(intent);
         }
+
+        if(v == mSavedGamesButton) {
+            Intent intent = new Intent(MainActivity.this, SavedGameListActivity.class);
+            startActivity(intent);
+        }
+
     }
+
+//    public void saveGameToFirebase(String gameTitle) {
+//        mSearchedGameReference.setValue(gameTitle);
+//    }
 }
