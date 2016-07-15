@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "319665315762",
+    "firebase_url": "https://android-independentproject.firebaseio.com",
+    "project_id": "android-independentproject",
+    "storage_bucket": "android-independentproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319665315762:android:7f04ef057138503f",
+        "android_client_info": {
+          "package_name": "com.epicodus.gamestat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319665315762-2lhuruu2hgta1i5geumbmea7m88dor9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk3W5B-XNmE9dWIYGLRnLdH5jLUK_caQQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
