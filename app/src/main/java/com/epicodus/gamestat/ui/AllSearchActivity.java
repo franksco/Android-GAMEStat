@@ -1,5 +1,6 @@
 package com.epicodus.gamestat.ui;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,7 +24,9 @@ public class AllSearchActivity extends AppCompatActivity {
     public static final String TAG = AllSearchActivity.class.getSimpleName();
 
     @Bind(R.id.allGamelistView) RecyclerView mRecyclerView;
+
     private GameListAdapter mAdapter;
+//    private ProgressDialog mAuthProgressDialog;
 
     public ArrayList<Game> mGames = new ArrayList<>();
 
@@ -33,11 +36,22 @@ public class AllSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_search);
         ButterKnife.bind(this);
 
+//        createAuthProgressDialog();
+
         getAllGames();
     }
 
+//    private void createAuthProgressDialog() {
+//        mAuthProgressDialog = new ProgressDialog(this);
+//        mAuthProgressDialog.setTitle("Loading...");
+//        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+//        mAuthProgressDialog.setCancelable(false);
+//    }
+
     private void getAllGames() {
         final GiantBombService giantBombService = new GiantBombService();
+
+//        mAuthProgressDialog.show();
 
         GiantBombService.findAllGames(new Callback() {
 
@@ -49,6 +63,9 @@ public class AllSearchActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                 mGames = giantBombService.AllGameResults(response);
+
+//                mAuthProgressDialog.dismiss();
+
 
                 AllSearchActivity.this.runOnUiThread(new Runnable() {
                     @Override
