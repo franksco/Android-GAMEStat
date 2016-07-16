@@ -44,7 +44,7 @@ public class AllSearchActivity extends AppCompatActivity {
 //    private void createAuthProgressDialog() {
 //        mAuthProgressDialog = new ProgressDialog(this);
 //        mAuthProgressDialog.setTitle("Loading...");
-//        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+//        mAuthProgressDialog.setMessage("Loading Games...");
 //        mAuthProgressDialog.setCancelable(false);
 //    }
 
