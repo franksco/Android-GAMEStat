@@ -1,7 +1,7 @@
 # GameStat
 
 ## Description
-A Place wher you can go and Look up games either through a game specific search or just looking at a list of games, also when you look at a game you can also click on a link and look at the developer and see information about them.
+A Place where you can go and look up games either through a specific search or just by looking at a list of games.You are able to save games that you may want to checkout to a list that you can check out later. Each user creates an account and based on who is logged in that saved list of games will be unique to that user.
 
 07/01/2016
 By Cory Franks
