@@ -12,6 +12,9 @@ public class Game {
     String imageUrl;
     String releaseDate;
     List<Developer> developers = new ArrayList<>();
+    private String pushId;
+
+    public Game() {}
 
     public Game(String name, String deck, String id, String imageUrl) {
         this.name = name;
@@ -38,35 +41,40 @@ public class Game {
            this.developers = developers;
         }
 
-    public Game() {
+    public String getName() {
+        return name;
     }
 
-    public String getName() {
-            return name;
-        }
+    public String getDeck() {
+        return deck;
+    }
 
-        public String getDeck() {
-            return deck;
-        }
+    public String getId() {
+        return id;
+    }
 
-        public String getId() {
-            return id;
-        }
+    public String getGenre() {
+        return genre;
+    }
 
-        public String getGenre() {
-            return genre;
-        }
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
-        public String getImageUrl() {
-            return imageUrl;
-        }
+    public String getReleaseDate() {
+        return releaseDate;
+    }
 
-        public String getReleaseDate() {
-            return releaseDate;
-        }
+    public List<Developer> getDevelopers() {
+        return developers;
+    }
 
-        public List<Developer> getDevelopers() {
-            return developers;
-        }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 
 }

@@ -20,6 +20,8 @@ import com.epicodus.gamestat.adapters.GameListAdapter;
 import com.epicodus.gamestat.model.Developer;
 import com.epicodus.gamestat.model.Game;
 import com.epicodus.gamestat.services.GiantBombService;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -95,10 +97,19 @@ public class TitleSpecificActivity extends AppCompatActivity implements View.OnC
         }
 
         if (v == saveGameButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             DatabaseReference gameRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_GAMES);
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_GAMES)
+                .child(uid);
+
+            DatabaseReference pushRef = gameRef.push();
+            String pushId = pushRef.getKey();
+            mGame.setPushId(pushId);
             gameRef.push().setValue(mGame);
+
             Toast.makeText(TitleSpecificActivity.this, "Saved", Toast.LENGTH_SHORT).show();
         }
     }

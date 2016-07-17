@@ -10,6 +10,8 @@ import com.epicodus.gamestat.R;
 import com.epicodus.gamestat.adapters.FirebaseGameViewHolder;
 import com.epicodus.gamestat.model.Game;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -17,7 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SavedGameListActivity extends AppCompatActivity {
-    private DatabaseReference mRestaurantReference;
+    private DatabaseReference mGameReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
     @Bind(R.id.allGamelistView) RecyclerView mRecyclerView;
@@ -29,14 +31,21 @@ public class SavedGameListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_search);
         ButterKnife.bind(this);
 
-        mRestaurantReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mGameReference = FirebaseDatabase
+            .getInstance()
+            .getReference(Constants.FIREBASE_CHILD_GAMES)
+            .child(uid);
+
         setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Game, FirebaseGameViewHolder>
                 (Game.class, R.layout.game_list_item, FirebaseGameViewHolder.class,
-                        mRestaurantReference) {
+                        mGameReference) {
 
             @Override
             protected void populateViewHolder(FirebaseGameViewHolder viewHolder,
