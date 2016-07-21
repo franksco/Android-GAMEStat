@@ -1,29 +1,26 @@
 package com.epicodus.gamestat.model;
 
 
-import java.util.ArrayList;
-
 public class Developer {
-    private String mName;
+    private String devname;
     private String mDeck;
     private String mFounded;
-    private String mId;
-    private String mWebsite;
+    private String devid;
+    private String devwebsite;
 
     private String mCountry;
     private String mCity;
 
     public Developer(String name, String id, String website) {
-        this.mName = name;
-        this.mId = id;
-        this.mWebsite = website;
+        this.devname = name;
+        this.devid = id;
+        this.devwebsite = website;
     }
 
-    public Developer() {
-    }
+    public Developer() {}
 
-    public String getName() {
-        return mName;
+    public String getDevname() {
+        return devname;
     }
 
     public String getDeck() {
@@ -34,12 +31,12 @@ public class Developer {
         return mFounded;
     }
 
-    public String getId() {
-        return mId;
+    public String getDevid() {
+        return devid;
     }
 
-    public String getWebsite() {
-        return mWebsite;
+    public String getDevwebsite() {
+        return devwebsite;
     }
 
     public String getCountry() {
@@ -58,12 +55,12 @@ public class Developer {
 //        return mDevelopedGames;
 //    }
 //
-//    public Developer(String name, String deck, String founded, String id, String website, ArrayList<DevelopedGames> developedgames, String country, String city) {
-//        this.mName = name;
+//    public Developer(String devname, String deck, String founded, String devid, String devwebsite, ArrayList<DevelopedGames> developedgames, String country, String city) {
+//        this.devname = devname;
 //        this.mDeck = deck;
 //        this.mFounded = founded;
-//        this.mId = id;
-//        this.mWebsite = website;
+//        this.devid = devid;
+//        this.devwebsite = devwebsite;
 //        this.mDevelopedGames = developedgames;
 //        this.mCountry = country;
 //        this.mCity = city;

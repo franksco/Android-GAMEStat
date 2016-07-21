@@ -4,20 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.gamestat.Constants;
 import com.epicodus.gamestat.R;
-import com.epicodus.gamestat.adapters.GameListAdapter;
-import com.epicodus.gamestat.model.Developer;
 import com.epicodus.gamestat.model.Game;
 import com.epicodus.gamestat.services.GiantBombService;
 import com.google.firebase.auth.FirebaseAuth;
@@ -80,7 +73,7 @@ public class TitleSpecificActivity extends AppCompatActivity implements View.OnC
                         mdeckTextView.setText(mGame.getDeck());
                         mGenreTextView.setText(mGame.getGenre());
                         mReleaseDateTextView.setText(mGame.getReleaseDate());
-                        mDevelopersTextView.setText(mGame.getDevelopers().get(0).getName());
+                        mDevelopersTextView.setText(mGame.getDevelopers().get(0).getDevname());
 
                     }
                 });
@@ -92,7 +85,7 @@ public class TitleSpecificActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         if (v == mDevelopersTextView) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mGame.getDevelopers().get(0).getWebsite()));
+                    Uri.parse(mGame.getDevelopers().get(0).getDevwebsite()));
             startActivity(webIntent);
         }
 

@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.epicodus.gamestat.Constants;
 import com.epicodus.gamestat.R;
+import com.epicodus.gamestat.adapters.FirebaseGameAdapter;
 import com.epicodus.gamestat.adapters.FirebaseGameViewHolder;
 import com.epicodus.gamestat.model.Game;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,16 +45,22 @@ public class SavedGameListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Game, FirebaseGameViewHolder>
-                (Game.class, R.layout.game_list_item, FirebaseGameViewHolder.class,
-                        mGameReference) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
-            @Override
-            protected void populateViewHolder(FirebaseGameViewHolder viewHolder,
-                Game model, int position) {
-                viewHolder.bindGame(model);
-            }
-        };
+        Query query = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_GAMES)
+                .child(uid);
+
+        mFirebaseAdapter = new FirebaseGameAdapter(Game.class, R.layout.game_list_item, FirebaseGameViewHolder.class, query, this);
+//        mFirebaseAdapter = new FirebaseRecyclerAdapter<Game, FirebaseGameViewHolder>
+//                (Game.class, R.layout.game_list_item, FirebaseGameViewHolder.class, mGameReference) {
+//
+//            @Override
+//            protected void populateViewHolder(FirebaseGameViewHolder viewHolder, Game model, int position) {
+//                viewHolder.bindGame(model);
+//            }
+//        };
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
