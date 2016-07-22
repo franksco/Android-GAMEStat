@@ -26,7 +26,7 @@ public class AllSearchActivity extends AppCompatActivity {
     @Bind(R.id.allGamelistView) RecyclerView mRecyclerView;
 
     private GameListAdapter mAdapter;
-//    private ProgressDialog mAuthProgressDialog;
+    private ProgressDialog mAuthProgressDialog;
 
     public ArrayList<Game> mGames = new ArrayList<>();
 
@@ -36,22 +36,22 @@ public class AllSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_search);
         ButterKnife.bind(this);
 
-//        createAuthProgressDialog();
+        createAuthProgressDialog();
 
         getAllGames();
     }
 
-//    private void createAuthProgressDialog() {
-//        mAuthProgressDialog = new ProgressDialog(this);
-//        mAuthProgressDialog.setTitle("Loading...");
-//        mAuthProgressDialog.setMessage("Loading Games...");
-//        mAuthProgressDialog.setCancelable(false);
-//    }
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Loading Games...");
+        mAuthProgressDialog.setCancelable(false);
+    }
 
     private void getAllGames() {
         final GiantBombService giantBombService = new GiantBombService();
 
-//        mAuthProgressDialog.show();
+        mAuthProgressDialog.show();
 
         GiantBombService.findAllGames(new Callback() {
 
@@ -64,13 +64,12 @@ public class AllSearchActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mGames = giantBombService.AllGameResults(response);
 
-//                mAuthProgressDialog.dismiss();
-
-
                 AllSearchActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mAdapter = new GameListAdapter(getApplicationContext(), mGames);
+
+                        mAuthProgressDialog.dismiss();
 
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(AllSearchActivity.this);

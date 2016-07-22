@@ -1,5 +1,6 @@
 package com.epicodus.gamestat.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class GameSearchActivity extends AppCompatActivity {
     @Bind(R.id.gameSearchlistView) RecyclerView mRecyclerView;
     private GameListAdapter mAdapter;
 
+    private ProgressDialog mAuthProgressDialog;
+
     private ArrayList<Game> mGames = new ArrayList<>();
 
     @Override
@@ -36,11 +39,23 @@ public class GameSearchActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Intent intent = getIntent();
         String gameTitle = intent.getStringExtra("gameTitle");
+        createAuthProgressDialog();
         getGames(gameTitle);
+
+    }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Loading Games...");
+        mAuthProgressDialog.setCancelable(false);
     }
 
     private void getGames(String query) {
         final GiantBombService giantBombService = new GiantBombService();
+
+        mAuthProgressDialog.show();
+
         giantBombService.findGames(query, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -55,6 +70,8 @@ public class GameSearchActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
+                        mAuthProgressDialog.dismiss();
+
                         mAdapter = new GameListAdapter(getApplicationContext(), mGames);
 
                         mRecyclerView.setAdapter(mAdapter);

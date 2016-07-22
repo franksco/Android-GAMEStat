@@ -15,7 +15,7 @@ public class Constants {
     public static final String FIELD_LIST_PARAMETER = "field_list";
     public static final String SEARCH_GAME_FIELD_LIST = "genres,name,deck,id,image";
     public static final String ALL_GAMES_FIELD_LIST = "name,deck,id,image";
-    public static final String GAME_FIELD_LIST = "genres,name,deck,id,developers,image";
+    public static final String GAME_FIELD_LIST = "genres,name,deck,id,developers,image,original_release_date";
     public static final String FIREBASE_CHILD_GAMES = "savedGames";
 
 }

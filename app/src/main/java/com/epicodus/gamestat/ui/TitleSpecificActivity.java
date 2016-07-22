@@ -1,17 +1,21 @@
 package com.epicodus.gamestat.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.gamestat.Constants;
 import com.epicodus.gamestat.R;
 import com.epicodus.gamestat.model.Game;
+import com.epicodus.gamestat.services.FormatDate;
 import com.epicodus.gamestat.services.GiantBombService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +37,7 @@ public class TitleSpecificActivity extends AppCompatActivity implements View.OnC
     @Bind(R.id.gameTextView) TextView mGameTextView;
     @Bind(R.id.deckTextView) TextView mdeckTextView;
     @Bind(R.id.genreTextView) TextView mGenreTextView;
+    @Bind(R.id.wrapper) RelativeLayout mWrapper;
     @Bind(R.id.releaseDateTextView) TextView mReleaseDateTextView;
     @Bind(R.id.developersTextView) TextView mDevelopersTextView;
     @Bind(R.id.saveGameButton) TextView saveGameButton;
@@ -48,12 +53,15 @@ public class TitleSpecificActivity extends AppCompatActivity implements View.OnC
         ButterKnife.bind(this);
         getGame(id);
 
+        mWrapper.getHeight();
         mDevelopersTextView.setOnClickListener(this);
         saveGameButton.setOnClickListener(this);
     }
 
+
     private void getGame(String id) {
         final GiantBombService giantBombService = new GiantBombService();
+
         giantBombService.findOneGame(id, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -68,11 +76,12 @@ public class TitleSpecificActivity extends AppCompatActivity implements View.OnC
 
                     @Override
                     public void run() {
+
                         Picasso.with(TitleSpecificActivity.this).load(mGame.getImageUrl()).into(mImageView);
                         mGameTextView.setText(mGame.getName());
                         mdeckTextView.setText(mGame.getDeck());
                         mGenreTextView.setText(mGame.getGenre());
-                        mReleaseDateTextView.setText(mGame.getReleaseDate());
+                        mReleaseDateTextView.setText(FormatDate.formatDate(mGame.getReleaseDate()));
                         mDevelopersTextView.setText(mGame.getDevelopers().get(0).getDevname());
 
                     }

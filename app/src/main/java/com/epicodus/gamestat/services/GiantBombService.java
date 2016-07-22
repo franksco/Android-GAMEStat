@@ -151,10 +151,15 @@ public class GiantBombService {
         try {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
+                Log.d("GamePageResults: " ,jsonData);
                 JSONObject giantBombJSON = new JSONObject(jsonData);
                 JSONObject gameJSON = giantBombJSON.getJSONObject("results");
                 String name = gameJSON.getString("name");
-                String deck = gameJSON.getString("deck");
+                String deck = gameJSON.optString("deck", "N/A");
+                if(deck.equals("null")){
+                    deck = "N/A";
+                }
+                String ReleaseDate = gameJSON.optString("original_release_date", "N/A");
                 JSONObject image = gameJSON.optJSONObject("image");
                 String imageUrl = "www.notanimage.com";
                 if(image != null){
@@ -162,7 +167,7 @@ public class GiantBombService {
                 }
                 String id = Integer.toString(gameJSON.getInt("id"));
                 String genre = gameJSON.optJSONArray("genres").getJSONObject(0).getString("name");
-                String ReleaseDate = gameJSON.optString("original_release_rate", "N/A");
+
 
                 ArrayList<Developer> Developers = new ArrayList<>();
                 JSONArray developersJSON = gameJSON.getJSONArray("developers");
