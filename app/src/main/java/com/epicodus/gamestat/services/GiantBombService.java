@@ -30,6 +30,7 @@ public class GiantBombService {
         urlBuilder.addQueryParameter(Constants.FORMAT_PARAMETER, Constants.FORMAT_PARAMETER_ANSWER)
                 .addQueryParameter(Constants.API_KEY_QUERY_PARAMETER, Constants.API_KEY)
                 .addQueryParameter(Constants.FIELD_LIST_PARAMETER, Constants.ALL_GAMES_FIELD_LIST);
+//                .addQueryParameter(Constants.OFFSET_PARAMETER, Constants.ALL_GAMES_OFFSET_PARAMETER);
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
@@ -48,7 +49,7 @@ public class GiantBombService {
         urlBuilder.addQueryParameter(Constants.FORMAT_PARAMETER, Constants.FORMAT_PARAMETER_ANSWER)
                 .addQueryParameter(Constants.API_KEY_QUERY_PARAMETER, Constants.API_KEY)
                 .addQueryParameter(Constants.FIELD_LIST_PARAMETER, Constants.SEARCH_GAME_FIELD_LIST)
-                .addQueryParameter(Constants.LIMIT_PARAMETER, "20")
+//                .addQueryParameter(Constants.LIMIT_PARAMETER, Constants.SEARCH_LIMIT_PARAMETER)
                 .addQueryParameter(Constants.YOUR_QUERY_PARAMETER, query);
         String url = urlBuilder.build().toString();
 
