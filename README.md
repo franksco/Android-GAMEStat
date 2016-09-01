@@ -9,7 +9,6 @@ By Cory Franks
 
 ## Setup/Installation Requirements
 
-* Create a directory
 * Clone Repository
 * Open android studio
 * Create emulater with marshmellow x86_64
